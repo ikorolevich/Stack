@@ -28,7 +28,7 @@ int main()
     Stack* begin, *beginSource, *del;
 
     beginSource = NULL;
-    for (int i = 0; i < 15; i++)
+    for (int i = 0; i < 2; i++)
     {
         Stack* myStack = new Stack;
         myStack->val = i;
@@ -49,58 +49,35 @@ int main()
         begin = begin->nextElement;
     }
 
-    return 0;
-
-    Stack *myStack = new Stack;
-    myStack->val = 1;
-    myStack->nextElement = NULL;
-
-    begin = myStack;
-
-    Stack *next = new Stack;
-    next->val = 2;
-    next->nextElement = begin;
-
-    begin = next;
-
-    Stack* next1 = new Stack;
-    next1->val = 3;
-    next1->nextElement = begin;
-
-    begin = next1;
     
-    Stack* t;
-    while (begin != NULL)
-    {
-        std::cout << begin->val <<std::endl;
-        begin = begin->nextElement;
-    }
 
-    begin = next1;
-
-    std::cout << "Top of the stack:" << begin->val << std::endl;
-
-    del = begin;
-    begin = begin->nextElement;
-    delete del;
-
-    while (begin != NULL)
-    {
-        std::cout << begin->val << std::endl;
-        begin = begin->nextElement;
-    }
-
-    begin = next;
+    
 
     //Del_All(&begin);
 
-    while (begin != NULL)
+    begin = NULL;
+    begin = beginSource;
+
+    int cnt = 0;
+    while (beginSource != NULL)
     {
-        del = begin;
-        begin = begin->nextElement;
+        cnt++;
+        del = beginSource;
+        beginSource = beginSource->nextElement;
         delete del;
+        /*if (cnt ==5)
+        {
+            break;
+        }*/
 
     }
+
+    //begin = beginSource;
+    /*while (begin != NULL)
+    {
+        std::cout << begin->val << std::endl;
+        begin = begin->nextElement;
+    }*/
 
     return 0;
 
